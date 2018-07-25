@@ -7,7 +7,7 @@ public abstract class AbstractPage {
 
 	public abstract void openPage();
 
-	public AbstractPage() {
+	public AbstractPage(WebDriver driver) {
 		this.driver = driver;
 	}
 }
