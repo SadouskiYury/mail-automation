@@ -1,16 +1,15 @@
 package main;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterGroups;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import steps.Step;
 
 public class MailAutomation {
 	private Step step;
-	private final String USERNAME = "tathtp";
-	private final String PASSWORD = "Klopik123";
 
 	@BeforeMethod(description = "Init browser")
 	public void setUp() {
@@ -18,21 +17,32 @@ public class MailAutomation {
 		step.initDriver();
 	}
 
-	@Test(description = "Login to Mail")
-	public void checkLoginMail() throws InterruptedException {
-		step.loginMail(USERNAME, PASSWORD);
-		Thread.sleep(3000);
-		Assert.assertTrue(step.isLoggedIn(USERNAME+"@mail.ru"));
-	}
-	
-	@Test(description = "Check sented Letter")
-	public void checkSentedLetter() throws InterruptedException {
-		step.createNewLetter("Hello my dear friend!!!");
-		
+	@Parameters({ "login", "Pass" })
+	@Test(description = "Login to Mail", groups = { "Test" })
+	public void checkLoginMail(String log, String pass) {
+		step.loginMail(log, pass);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		Assert.assertTrue(step.isLoggedIn(log + "@mail.ru"));
 	}
 
-//	 @AfterMethod(description = "Stop Browser")
-//	 public void stopBrowser() {
-//	 step.closeDriver();
-//	 }
+	@Parameters({ "email", "topic", "letter" })
+	@Test(description = "Check sented Letter", groups = { "Test" })
+	public void checkSentLetter(String email, String topic, String letter) {
+		step.sendNewLetter(email, topic, letter);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		Assert.assertTrue(step.checkSentLetter(email, topic));
+	}
+
+	@AfterGroups(description = "Stop Browser", groups = "Test")
+	public void stopBrowser() {
+		step.closeDriver();
+	}
 }

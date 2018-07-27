@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 
 import driver.DriverSingleton;
 import pages.LoginPage;
+import pages.SendLetterPage;
+import pages.SentLetterPage;
 
 public class Step {
 	private WebDriver driver;
@@ -28,15 +30,22 @@ public class Step {
 		return actualUsername.equals(username);
 	}
 
-	public void sentNewLetter(String eamil, String topic) {
-		LoginPage loginPage = new LoginPage(driver);
-		loginPage.sentLetter(eamil, topic);
-
+	public void sendNewLetter(String eamil, String topic, String message) {
+		SendLetterPage page = new SendLetterPage(driver);
+		page.openPage();
+		page.sendLetter(eamil, topic, message);
 	}
 
-	public void createNewLetter(String newLetter) {
-		LoginPage loginPage = new LoginPage(driver);
-		loginPage.goToPageSentTeller(newLetter);
+	public boolean checkSentLetter(String email, String topic) {
+		SentLetterPage page = new SentLetterPage(driver);
+		page.openPage();
+		String sentWhom = page.SentWhom();
+		String sentTopic = page.SentTopic();
+
+		if (email.contains(sentWhom) && sentTopic.contains(topic))
+			return true;
+		else
+			return false;
 	}
 
 }

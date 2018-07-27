@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="SimpleSuit">
+	<test name="SimpleTest">
+		<parameter name="login" value="tathtp" />
+		<parameter name="Pass" value="Klopik123" />
+		<parameter name="email"
+			value="sviatlana.zakharenka@gmail.com" />
+		<parameter name="topic" value="HomeWork" />
+		<parameter name="letter"
+			value="Hello Svetlana Zaharenko....from Yury!!!" />
+		<groups>
+			<run>
+				<include name="Test" />
+			</run>
+		</groups>
+	</test>
+
+</suite>

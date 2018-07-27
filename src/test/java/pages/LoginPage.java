@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends AbstractPage {
-	private final String BASE_URL = "https://mail.ru";
+	private final String BASE_URL = "https://mail.ru/";
 
 	public LoginPage(WebDriver driver) {
 		super(driver);
@@ -31,21 +31,6 @@ public class LoginPage extends AbstractPage {
 	@FindBy(xpath = "//span[@id='PH_authMenu_button']/i[@id='PH_user-email']")
 	private WebElement LoggedInUser;
 
-	@FindBy(xpath = ".//span[contains(text(),'Написать письмо')]")
-	private WebElement goToSentPage;
-
-	@FindBy(xpath = ".//iframe[contains(@id,'composeEditor_ifr')]")
-	private WebElement frameNewLetter;
-
-	@FindBy(xpath = ".//body[@class='mceContentBody compose2']")
-	private WebElement NewLetter;
-	
-	@FindBy(xpath = ".//body[@class='mceContentBody compose2']")
-	private WebElement email;
-	
-	@FindBy(xpath = ".//body[@class='mceContentBody compose2']")
-	private WebElement topic;
-
 	public void login(String username, String password) {
 		login.sendKeys(username);
 		pass.sendKeys(password);
@@ -55,18 +40,6 @@ public class LoginPage extends AbstractPage {
 
 	public String getTextLoggedInUserName() {
 		return LoggedInUser.getText().trim();
-	}
-
-	public void goToPageSentTeller(String newLetter) {
-		goToSentPage.click();
-		driver.switchTo().frame(frameNewLetter);
-		NewLetter.clear();
-		NewLetter.sendKeys(newLetter);
-	}
-	
-	public void sentLetter(String eamil,String topic) {
-		driver.switchTo().defaultContent();
-		
 	}
 
 }
