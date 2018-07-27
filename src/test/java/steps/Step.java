@@ -21,4 +21,22 @@ public class Step {
 		loginPage.openPage();
 		loginPage.login(username, pass);
 	}
+
+	public boolean isLoggedIn(String username) {
+		LoginPage loginPage = new LoginPage(driver);
+		String actualUsername = loginPage.getTextLoggedInUserName();
+		return actualUsername.equals(username);
+	}
+
+	public void sentNewLetter(String eamil, String topic) {
+		LoginPage loginPage = new LoginPage(driver);
+		loginPage.sentLetter(eamil, topic);
+
+	}
+
+	public void createNewLetter(String newLetter) {
+		LoginPage loginPage = new LoginPage(driver);
+		loginPage.goToPageSentTeller(newLetter);
+	}
+
 }

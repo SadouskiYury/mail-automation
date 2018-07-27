@@ -1,5 +1,6 @@
 package main;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -18,13 +19,20 @@ public class MailAutomation {
 	}
 
 	@Test(description = "Login to Mail")
-	public void oneCanLoginMail() {
+	public void checkLoginMail() throws InterruptedException {
 		step.loginMail(USERNAME, PASSWORD);
-		// Assert.assertTrue(step.isLoggedIn(USERNAME));
+		Thread.sleep(3000);
+		Assert.assertTrue(step.isLoggedIn(USERNAME+"@mail.ru"));
+	}
+	
+	@Test(description = "Check sented Letter")
+	public void checkSentedLetter() throws InterruptedException {
+		step.createNewLetter("Hello my dear friend!!!");
+		
 	}
 
-	@AfterMethod(description = "Stop Browser")
-	public void stopBrowser() {
-		step.closeDriver();
-	}
+//	 @AfterMethod(description = "Stop Browser")
+//	 public void stopBrowser() {
+//	 step.closeDriver();
+//	 }
 }
