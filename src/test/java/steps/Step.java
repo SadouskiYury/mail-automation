@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import driver.DriverSingleton;
 import pages.LoginPage;
-import pages.SendLetterPage;
+import pages.SendMailPage;
 import pages.SentLetterPage;
 
 public class Step {
@@ -31,7 +31,7 @@ public class Step {
 	}
 
 	public void sendNewLetter(String eamil, String topic, String message) {
-		SendLetterPage page = new SendLetterPage(driver);
+		SendMailPage page = new SendMailPage(driver);
 		page.openPage();
 		page.sendLetter(eamil, topic, message);
 	}

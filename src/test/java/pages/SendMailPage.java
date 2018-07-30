@@ -6,10 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class SendLetterPage extends AbstractPage {
+public class SendMailPage extends AbstractPage {
 	private final String BASE_URL = "https://e.mail.ru/compose";
 
-	public SendLetterPage(WebDriver driver) {
+	public SendMailPage(WebDriver driver) {
 		super(driver);
 		PageFactory.initElements(this.driver, this);
 	}
