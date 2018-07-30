@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import steps.Step;
 
-public class MailAutomation {
+public class MailAutomationTest {
 	private Step step;
 
 	@BeforeMethod(description = "Init browser")
