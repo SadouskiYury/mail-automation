@@ -33,7 +33,7 @@ public class MailAutomationTest {
 
 	@Parameters({ "email", "topic", "letter" })
 	@Test(description = "Check sented Letter", groups = { "Test" })
-	public void checkSentLetter(String email, String topic, String letter) {
+	public void checkSentLetter(@Optional String email,@Optional String topic,@Optional String letter) {
 		step.sendNewLetter(email, topic, letter);
 		try {
 			Thread.sleep(3000);
