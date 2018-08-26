@@ -5,8 +5,7 @@
 	<test name="SimpleTest">
 		<parameter name="login" value="tathtp" />
 		<parameter name="Pass" value="Klopik123" />
-		<parameter name="email"
-			value="sviatlana.zakharenka@gmail.com" />
+		<parameter name="email"	value="sviatlana.zakharenka@gmail.com" />
 		<parameter name="topic" value="HomeWork" />
 		<parameter name="letter"
 			value="Hello Svetlana Zaharenko....from Yury!!!" />

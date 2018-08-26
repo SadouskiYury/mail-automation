@@ -11,7 +11,7 @@ import steps.Step;
 
 public class MailAutomationTest {
 	private Step step;
-	private static final String mail="@mail.ru";
+	private static final String mail = "@mail.ru";
 
 	@BeforeMethod(description = "Init browser")
 	public void setUp() {
@@ -21,7 +21,7 @@ public class MailAutomationTest {
 
 	@Parameters({ "login", "Pass" })
 	@Test(description = "Login to Mail", groups = { "Test" })
-	public void checkLoginMail(@Optional String log,@Optional String pass) {
+	public void checkLoginMail(@Optional String log, @Optional String pass) {
 		step.loginMail(log, pass);
 		try {
 			Thread.sleep(3000);
@@ -33,7 +33,7 @@ public class MailAutomationTest {
 
 	@Parameters({ "email", "topic", "letter" })
 	@Test(description = "Check sented Letter", groups = { "Test" })
-	public void checkSentLetter(@Optional String email,@Optional String topic,@Optional String letter) {
+	public void checkSentLetter(@Optional String email, @Optional String topic, @Optional String letter) {
 		step.sendNewLetter(email, topic, letter);
 		try {
 			Thread.sleep(3000);
