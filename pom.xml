@@ -13,7 +13,7 @@
 				<version>2.22.0</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>suit.xml</suiteXmlFile>
+						<suiteXmlFile>suitMy.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
