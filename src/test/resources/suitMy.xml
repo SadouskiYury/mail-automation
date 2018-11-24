@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="SimpleSuit">
-	<test name="SimpleTest">
+	<test name="SimpleTest with testNG for mail.ru">
 		<parameter name="login" value="tathtp" />
 		<parameter name="Pass" value="Klopik123" />
 		<parameter name="email"
