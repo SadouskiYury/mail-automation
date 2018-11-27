@@ -19,12 +19,6 @@ public class SentLetterPage extends AbstractPage {
 		PageFactory.initElements(this.driver, this);
 	}
 
-	@Override
-	public void openPage() {
-		driver.navigate().to(URL);
-		System.out.println("Sentletters opened");
-	}
-
 	public String SentTopic() {
 		return topic.getText().trim();
 	}

@@ -7,7 +7,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class SendMailPage extends AbstractPage {
-	private final String BASE_URL = "https://e.mail.ru/compose";
 
 	public SendMailPage(WebDriver driver) {
 		super(driver);
@@ -32,11 +31,6 @@ public class SendMailPage extends AbstractPage {
 	@FindBy(xpath = ".//div[@data-name='send']/span")
 	private WebElement button;
 
-	@Override
-	public void openPage() {
-		driver.navigate().to(BASE_URL);
-		System.out.println("WriteLetter page opened");
-	}
 
 	public void sendLetter(String em, String top, String message) {
 		WebElement email = driver.switchTo().activeElement();

@@ -1,14 +1,11 @@
 package test;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterGroups;
-import org.testng.annotations.BeforeGroups;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
-
+import org.testng.annotations.*;
 import steps.Step;
+import util.ListenerTest;
 
+@Listeners({ListenerTest.class})
 public class MailAutomationTest {
 	private Step step;
 	private static final String mail = "@mail.ru";
@@ -33,14 +30,14 @@ public class MailAutomationTest {
 
 	@Parameters({ "email", "topic", "letter" })
 	@Test(description = "Check sented Letter", groups = {"Test"})
-	public void checkSentLetter(@Optional String email, @Optional String topic, @Optional String letter) {
+	public void checkSentedLetter(@Optional String email, @Optional String topic, @Optional String letter) {
 		step.sendNewLetter(email, topic, letter);
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		Assert.assertTrue(step.checkSentLetter(email, topic));
+		Assert.assertTrue(step.checkSentedLetter(email, topic));
 	}
 
 	@AfterGroups(description = "Stop Browser", groups = {"Test"})

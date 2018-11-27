@@ -15,7 +15,7 @@
 		<allure-maven.vesrion>2.9</allure-maven.vesrion>
 		<allure-testng.version>2.8.1</allure-testng.version>
 		<aspectj.version>1.9.2</aspectj.version>
-		<SuitXMLFile>src/test/resources/suitMy.xml</SuitXMLFile>
+		<SuitXMLFile>src/main/resources/suitMy.xml</SuitXMLFile>
 		<allure.results.directory>${project.build.directory}/target/allure-results</allure.results.directory>
 		<allure.report.directory>${project.build.directory}/target/allure-report</allure.report.directory>
 	</properties>
@@ -110,7 +110,18 @@
 			<artifactId>jetty-maven-plugin</artifactId>
 			<version>9.4.14.v20181114</version>
 		</dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.11</version>
+            <scope>compile</scope>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>commons-io</groupId>-->
+            <!--<artifactId>commons-io</artifactId>-->
+            <!--<version>1.3.2</version>-->
+        <!--</dependency>-->
 
-	</dependencies>
+    </dependencies>
 
 </project>
